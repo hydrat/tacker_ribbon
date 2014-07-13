@@ -1,0 +1,42 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+
+    <ribbon startFromScratch="true">
+           <tabs>
+                     <tab id="MyReport" label="Seitenansicht">
+
+                              <group idMso="GroupPrintPreviewPrintAccess" />
+                              <group idMso="GroupPageSize" />
+                             <group idMso="GroupPageLayoutAccess" />
+                             <group idMso="GroupZoom" />
+                             <!--  <group idMso="GroupPrintPreviewData" />  -->
+
+                              <group id="Daten" keytip="d" label="Daten">
+                                        <button idMso="DataRefreshAll"  size="large"/>
+                                       <button idMso="ExportExcel"  size="large"/>
+                                      <button idMso="ExportTextFile"  size="large"/>
+                                      <button idMso="PublishToPdfOrEdoc"  size="large"/>
+
+                                      <!--          <button idMso="FileSendAsAttachment"  size="large"/>  -->
+
+                                       <button id="SendAsAttachment"
+                                                       imageMso="FileSendAsAttachment"
+                                                       size="large"
+                                                       label="Email"
+                                                       onAction            ="SendEmailAttachment"
+                                                       screentip="Bericht als E-Mail versenden"
+                                         />
+
+
+                                    <!-- don't shop up in Access Runtime Environment:-->
+                                   <menu idMso="ExportMoreOptionsMenu" size="large" />
+                             </group>
+
+                            <group id="Exit" keytip="x" label="Vorschau schließen">
+                                     <button idMso="PrintPreviewClose" keytip="x" size="large"/>
+                            </group>
+
+                    </tab>
+            </tabs>
+    </ribbon>
+
+</customUI>

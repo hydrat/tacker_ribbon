@@ -1,0 +1,136 @@
+<!-- <mso:cmd app="Access" dt="0" /> -->
+<mso:customUI xmlns:x1="http://schemas.microsoft.com/office/2009/07/customui/macro" xmlns:mso="http://schemas.microsoft.com/office/2009/07/customui"  xmlns:tacker="http://hydrat.ch/2011/08/tacker" loadImage="OnLoadImage" onLoad="OnRibbonLoad">
+  <mso:ribbon startFromScratch="false">
+    <mso:tabs>
+      <mso:tab id="office" label="Office">
+        <mso:group id="kontakte_group" label="Kontakte" autoScale="true">
+          <mso:button label="Kunden" size="large" id="clients" imageMso="FindUnread" onAction="clients.search" visible="true"/>
+<!--
+           <mso:button id="clients.suchen" label="Kunden" size="large" image="search_big.bmp" onAction="clients.search" visible="true"/>
+ -->
+          <mso:separator id="partners.employees"/>
+          <mso:button id="employees" label="Personal" size="large" imageMso="ArrangeByLogContact" onAction="employees.search" visible="true"/>
+        <mso:group id="orders" label="Akquisition" autoScale="true">
+          <mso:button id="orders.suchen" label="Aufträge" size="large" imageMso="ResolveBusinessDataEntityInstanceError" onAction="order.search" visible="true"/>
+          <mso:separator id="reservations.transfers"/>
+          <mso:button id="weitergabe_suchen" label="Weitergaben" size="large" imageMso="AssignTask" onAction="weitergaben.weitergabe_suchen" visible="true"/>
+        </mso:group>
+        <mso:group id="packages" label="Packages" autoScale="true">
+          <mso:button id="spa.package_suchen" label="Packages" size="large" imageMso="UMLPackages" onAction="package.package_suchen" visible="true"/>
+          <mso:separator id="orders.reservations"/>
+          <mso:button id="akq.reservation_suchen" label="Reservationen" size="large" imageMso="ShowSchedulingPage" onAction="reservation.search" visible="true"/>
+        </mso:group>
+        <mso:group id="dispos" label="Dispos" autoScale="true" >
+          <mso:button id="dispo.suchen" label="Dispo" size="large" imageMso="EditWorkflowTask" onAction="dispo.search" visible="true"/>
+        </mso:group>
+        <mso:group id="geo.routen" label="Geografie" autoScale="true" >
+          <mso:button id="standort_suchen" label="Standorte" size="large" imageMso="BlogHomePage" onAction="standort.standort_suchen" visible="true"/>
+          <mso:button id="geo.alle_routen" label="Routen" image="search_big.bmp" onAction="route.alle_routen" visible="true"/>
+          <mso:button id="geo.alle_touren" label="Touren" image="search_big.bmp" onAction="tour.alle_touren" visible="true"/>
+        </mso:group>
+      </mso:tab>
+      <mso:tab id="listen" label="Listen">
+        <mso:group id="akquisition_berichte" label="Akquisition" autoScale="true">
+          <mso:button id="akq.akquisitionsliste" label="Akquisitionen" image="report_big.bmp" onAction="auftrag.akquisitionsliste" visible="true"/>
+          <mso:button id="akq.erinnerungsliste" label="Erinnerungen" image="report_big.bmp" onAction="auftrag.erinnerungsliste" visible="true"/>
+          <mso:button id="akq.feedbackliste" label="Feedbacks" image="report_big.bmp" onAction="auftrag.feedbackliste" visible="true"/>
+        </mso:group>
+        <mso:group id="disposition_berichte" label="Dispo" autoScale="true">
+          <mso:button id="dis.anlieferungsliste" label="Anlieferungen" image="report_big.bmp" onAction="auftrag.anlieferungsliste" visible="true"/>
+        </mso:group>
+        <mso:group id="spartenlisten" label="Sparten" autoScale="true">
+          <mso:button id="fixplakat_liste" label="Fixstellen" image="report_big.bmp" onAction="sparte.fixplakat_liste" visible="true"/>
+          <mso:button id="fixplakat_liste_intern" label="Fixstellen intern" image="report_big.bmp" onAction="sparte.fixplakat_liste_intern" visible="true"/>
+          <mso:separator id="spa.fix_flyerlisten"/>
+          <mso:button id="flyernetz_liste" label="Flyerstellen" image="report_big.bmp" onAction="sparte.flyernetz_liste" visible="true"/>
+          <mso:button id="flyernetz_liste_intern" label="Flyerstellen intern" image="report_big.bmp" onAction="sparte.flyernetz_liste_intern" visible="true"/>
+          <mso:separator id="spa.flyer_plakatlisten"/>
+          <mso:button id="freiplakat_liste" label="Indoor/Outdoor" image="report_small.bmp" onAction="sparte.freiplakat_liste" visible="true"/>
+        </mso:group>
+        <mso:group id="packages_listen" label="Packages" autoScale="true" >
+          <mso:button id="spa.package_liste" label="Liste" image="report_small.bmp" onAction="package.package_liste" visible="true"/>
+          <mso:button id="spa.package_liste_details" label="Liste Details" image="report_small.bmp" onAction="package.package_liste_details" visible="true"/>
+          <mso:button id="spa.package_liste_extern" label="Liste Extern" image="report_small.bmp" onAction="package.package_liste_extern" visible="true"/>
+          <mso:separator id="spa.sepPackagePlatzPivots"/>
+          <mso:button id="spa.package_platz_pivot_a2" label="Platz Package Pivot A2" image="report_small.bmp" onAction="package.platzzuordnung_a2" visible="true"/>
+          <mso:button id="spa.package_platz_pivot_a3" label="Platz Package Pivot A3" image="report_small.bmp" onAction="package.platzzuordnung_a3" visible="true"/>
+        </mso:group>
+        <mso:group id="per.lohnausgaben" label="Lohnkosten" autoScale="true">
+          <mso:button id="per.jahresloehne" label="Lohnkosten" image="report_small.bmp" onAction="administration.jahresloehne" visible="true"/>
+          <mso:button id="per.personalausgaben" label="Personalausgaben" image="report_small.bmp" onAction="administration.personalausgaben" visible="true"/>
+        </mso:group>
+        <mso:group id="per.spesen" label="Spesen" autoScale="true">
+          <mso:button id="per.spesen_alle" label="Alle" image="report_small.bmp" onAction="administration.spesen_alle" visible="true"/>
+          <mso:button id="per.spesen_nach_spesenarten" label="Nach Spesenarten" image="report_small.bmp" onAction="administration.spesen_nach_spesenart" visible="true"/>
+        </mso:group>
+      </mso:tab>
+
+      <mso:tab id="buchhaltung" label="Buchhaltung">
+        <mso:group id="buchhaltung.personal" label="Personal" autoScale="true">
+          <mso:button id="per.stundenlohn_oaof" label="Stundenlöhne" image="report_small.bmp" onAction="employees.stundenloehne" visible="true"/>
+          <mso:button id="per.monatsloehne" label="Monatslöhne" image="report_small.bmp" onAction="employees.monatsloehne" visible="true"/>
+          <mso:button id="buchhaltung.nettoloehne" label="Nettoloehne" image="report_small.bmp" onAction="buchhaltung.nettoloehne" visible="true"/>
+        </mso:group>
+        <mso:group id="buchhaltung.kunden" label="Kunden" autoScale="true">
+          <mso:button id="buchhaltung.debitoren_nach_sparten" label="Debitoren nach Sparten" image="report_small.bmp" onAction="buchhaltung.debitoren_nach_sparten" visible="true"/>
+          <mso:button id="buchhaltung.gegenleistungen" label="Gegenleistungen/Sponsoring" image="report_small.bmp" onAction="buchhaltung.gegenleistungen" visible="true"/>
+        </mso:group>
+        <mso:group id="buchhaltung.partner" label="Partner" autoScale="true">
+          <mso:button id="buchhaltung.partner_handelsbilanz" label="Handelsbilanz" image="report_small.bmp" onAction="buchhaltung.partner_handelsbilanz" visible="true"/>
+        </mso:group>
+        <mso:group id="buchhaltung_close" label="Allgemein" imageMso="AppointmentColor2" autoScale="true">
+          <mso:control idQ="mso:PrintPreviewClose" size="large" visible="true"/>
+        </mso:group>
+      </mso:tab>
+
+      <mso:tab id="cockpit" label="Cockpit">
+        <mso:group id="cockpit.cockpit_general" label="Allgemein" imageMso="AppointmentColor2" autoScale="true">
+          <mso:control idQ="mso:PrintDialogAccess" size="large" visible="true"/>
+        </mso:group>
+        <mso:group id="cockpit.auftragwesen" label="Aufträge" autoScale="true">
+          <mso:button id="cockpit.aufwand_ertrag" label="Aufwand/Ertrag" image="report_small.bmp" onAction="administration.aufwand_ertrag" visible="true"/>
+          <mso:button id="cockpit.erhaltene_auftraege" label="Erhalten" image="report_small.bmp" onAction="administration.erhaltene_auftraege" visible="true"/>
+          <mso:button id="cockpit.auftraege_nach_sparten" label="Nach Sparten" image="report_small.bmp" onAction="administration.auftraege_nach_sparten" visible="true"/>
+          <mso:button id="cockpit.auftraege_nach_kunden" label="Nach Kunden" image="report_small.bmp" onAction="administration.auftraege_nach_kunden" visible="true"/>
+          <mso:button id="cockpit.auftraege_nach_mitarbeiter" label="Nach Mitarbeiter" image="report_small.bmp" onAction="administration.auftraege_nach_mitarbeiter" visible="true"/>
+          <mso:button id="cockpit.auftraege_grafik" label="Grafik" image="report_small.bmp" onAction="administration.auftraege_grafik" visible="true"/>
+          <mso:button id="cockpit.auftraege_reklamationen" label="Reklamationen" image="report_small.bmp" onAction="administration.auftraege_reklamationen" visible="true"/>
+          <mso:button id="cockpit.kunden_topten" label="Kunden Topten" image="report_small.bmp" onAction="administration.kunden_topten" visible="true"/>
+        </mso:group>
+        <mso:group id="cockpit.weitergaben" label="Weitergaben" autoScale="true">
+          <mso:button id="cockpit.weitergaben_nach_status" label="Weitergaben nach Status" image="report_small.bmp" onAction="administration.weitergaben_nach_status" visible="true"/>
+          <mso:button id="cockpit.weitergaben_nach_partner" label="Weitergaben nach Partner" image="report_small.bmp" onAction="administration.weitergaben_nach_partner" visible="true"/>
+          <mso:button id="cockpit.partner_topten" label="Partner Topten" image="report_small.bmp" onAction="administration.partner_topten" visible="true"/>
+        </mso:group>
+        <mso:group id="cockpit.debitoren" label="Debitoren" autoScale="true">
+          <mso:button id="cockpit.debitoren_nach_status" label="Nach Status" image="report_small.bmp" onAction="administration.debitoren_nach_status" visible="true"/>
+          <mso:button id="cockpit.debitoren_nach_preis" label="Nach Preis" image="report_small.bmp" onAction="administration.debitoren_nach_preis" visible="true"/>
+        </mso:group>
+        <mso:group id="cockpit.cockpit_group" label="Cockpit" autoScale="true">
+          <mso:button id="cockpit.cockpit" label="Cockpit" image="report_small.bmp" onAction="administration.cockpit" visible="true"/>
+        </mso:group>
+        <mso:group id="cockpit.fixstellen" label="Fixstellen" autoScale="true">
+          <mso:button id="cockpit.fixstellen_personal" label="Ausgaben Personal" image="report_small.bmp" onAction="administration.fixstellen_personal" visible="true"/>
+          <mso:button id="cockpit.fixstellen_einnahmen" label="Einnahmen" image="report_small.bmp" onAction="administration.fixstellen_einnahmen" visible="true"/>
+          <mso:button id="cockpit.fixstellen_einnahmen_details" label="Einnahmen Details" image="report_small.bmp" onAction="administration.fixstellen_einnahmen_details" visible="true"/>
+          <mso:button id="cockpit.fixstellen_rabatt_kunden" label="Rabatt Kunden" image="report_small.bmp" onAction="administration.fixstellen_rabatt_kunden" visible="true"/>
+          <mso:button id="cockpit.fixstellen_plaetze_bewertung" label="Plätze Bewertung" image="report_small.bmp" onAction="administration.fixstellen_plaetze_bewertung" visible="true"/>
+          <mso:button id="cockpit.mieten_termine" label="Mieten Terminliste" image="report_small.bmp" onAction="administration.mieten_termine" visible="true"/>
+        </mso:group>
+        <mso:group id="cockpit_close" label="Allgemein" imageMso="AppointmentColor2" autoScale="true">
+          <mso:control idQ="mso:PrintPreviewClose" size="large" visible="true"/>
+        </mso:group>
+      </mso:tab>
+      <mso:tab id="administration" label="Administration">
+        <mso:group id="admin.verknuepfen" label="Tabellen" autoScale="true">
+          <mso:button id="admin.wochen" label="Wochen" image="report_small.bmp" onAction="administration.weeks" visible="true"/>
+          <mso:button id="admin.repair_auf_wei" label="Erhöhte Weitergaben" image="report_small.bmp" onAction="administration.weitergaben_reparieren" visible="true"/>
+          <mso:button id="admin.tabellen_verknuepfen" label="Verknüpfen" image="report_small.bmp" onAction="administration.tabellen_verknuepfen" visible="true"/>
+        </mso:group>
+        <mso:group id="admin_close" label="Allgemein" imageMso="AppointmentColor2" autoScale="true">
+          <mso:control idQ="mso:PrintPreviewClose" size="large" visible="true"/>
+        </mso:group>
+      </mso:tab>        
+    </mso:tabs>
+  </mso:ribbon>
+</mso:customUI>

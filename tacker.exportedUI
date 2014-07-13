@@ -1,0 +1,24 @@
+<mso:cmd app="Access" dt="0" />
+<mso:customUI xmlns:mso="http://schemas.microsoft.com/office/2009/07/customui">
+<mso:ribbon>
+<mso:qat>
+<mso:sharedControls>
+<mso:control idQ="mso:FileNewDatabase" visible="false"/>
+<mso:control idQ="mso:FileOpenDatabase" visible="false"/>
+<mso:control idQ="mso:FileSendAsAttachment" visible="false" insertBeforeQ="mso:FileSave"/>
+<mso:control idQ="mso:SpellingAccess" visible="false" insertBeforeQ="mso:FileSave"/>
+<mso:control idQ="mso:ViewsModeMenu" visible="false" insertBeforeQ="mso:FileSave"/>
+<mso:control idQ="mso:Synchronize" visible="false" insertBeforeQ="mso:FileSave"/>
+<mso:control idQ="mso:DataRefreshAll" visible="false" insertBeforeQ="mso:FileSave"/>
+<mso:control idQ="mso:FilePrintQuick" visible="true" insertBeforeQ="mso:FileSave"/>
+<mso:control idQ="mso:FileSave" visible="true"/>
+<mso:control idQ="mso:Undo" visible="true" insertBeforeQ="mso:FilePrintPreview"/>
+<mso:control idQ="mso:Redo" visible="true" insertBeforeQ="mso:FilePrintPreview"/>
+<mso:control idQ="mso:FilePrintPreview" visible="true"/>
+<mso:control idQ="mso:ViewsReportView" visible="true"/>
+<mso:control idQ="mso:ViewsFormView" visible="true"/>
+<mso:control idQ="mso:ViewsDesignView" visible="true"/>
+</mso:sharedControls>
+</mso:qat>
+</mso:ribbon>
+</mso:customUI>
