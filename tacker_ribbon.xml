@@ -5,11 +5,9 @@
       <mso:tab id="office" label="Office">
         <mso:group id="kontakte_group" label="Kontakte" autoScale="true">
           <mso:button label="Kunden" size="large" id="clients" imageMso="FindUnread" onAction="clients.search" visible="true"/>
-<!--
-           <mso:button id="clients.suchen" label="Kunden" size="large" image="search_big.bmp" onAction="clients.search" visible="true"/>
- -->
           <mso:separator id="partners.employees"/>
           <mso:button id="employees" label="Personal" size="large" imageMso="ArrangeByLogContact" onAction="employees.search" visible="true"/>
+        </mso:group>
         <mso:group id="orders" label="Akquisition" autoScale="true">
           <mso:button id="orders.suchen" label="Aufträge" size="large" imageMso="ResolveBusinessDataEntityInstanceError" onAction="order.search" visible="true"/>
           <mso:separator id="reservations.transfers"/>
